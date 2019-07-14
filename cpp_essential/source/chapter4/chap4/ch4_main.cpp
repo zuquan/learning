@@ -342,6 +342,7 @@ void print_less_than( const vector<int> &vec,
 
 void prog4()
 {
+    cout << endl << "in prog4" << endl;
     Triangular tri( 6, 3 );
     cout << tri << '\n';
 
@@ -352,6 +353,7 @@ void prog4()
 
 void prog3()
 {
+    cout << endl << "in prog3" << endl;
 	int ia[16] = { 17, 12, 44, 9, 18, 45, 6, 14, 
 	        	   23, 67, 9, 0, 27, 55, 8, 16 };
 
@@ -367,6 +369,7 @@ void prog3()
 
 void prog1()
 {
+    cout << endl << "in prog1" << endl;
 	char ch;
 	bool more = true;
 
@@ -391,6 +394,8 @@ void prog1()
 
 void prog2()
 {
+
+    cout << endl << "in prog2" << endl;
 	Triangular tri( 20, 12 );
 	Triangular::iterator it = tri.begin();
 	Triangular::iterator end_it = tri.end();
@@ -406,6 +411,7 @@ void prog2()
 
 void prog5()
 {
+    cout << endl << "in prog5" << endl;
 	Triangular tri( 4, 3 );
 	Triangular::iterator it = tri.begin();
 	Triangular::iterator end_it = tri.end();
@@ -423,8 +429,8 @@ void prog5()
 int main() 
 {
     prog1();
-//	prog2();
-//	prog3();
-//	prog4();
-//	prog5();
+	prog2();
+	prog3();
+	prog4();
+	prog5();
 }

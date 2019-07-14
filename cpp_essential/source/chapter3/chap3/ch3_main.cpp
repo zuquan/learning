@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <iterator>
 using namespace std;
 
 // globals as convenience for executing procedures
@@ -289,12 +290,17 @@ void prog_filter_vers()
 		      << local_vec.size() << endl;
 	else cerr << "!! filter_ver1 ok!\n";
 
-	local_vec = filter_ver2( ivec, partition_value, less<int>() );
+    less<int> le = less<int>();
+	local_vec = filter_ver2( ivec, partition_value, le);
+	//local_vec = filter_ver2( ivec, partition_value, less<int>() );
 	if ( local_vec.size() != solution_size )
 		 cerr << "?? filter_ver2 failed! expected "
 		      << solution_size << ", received: " 
 		      << local_vec.size() << endl;
 	else cerr << "!! filter_ver2 ok!\n";
+
+    /*
+    */
 
     // unless we use an iserter, must provide a sized container
 	// within which filter can assign the values ...
@@ -316,7 +322,7 @@ void prog_filter_vers()
                  partition_value, greater<int>() );
 
 	err_cnt = 0;
-	ix = solution_size;
+	int ix = solution_size;
 
 	for ( int iy = 0; ix < ivec.size(); ++ix, ++iy )
 		  if ( ivec[ ix ] != ivec2[ iy ] )

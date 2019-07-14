@@ -27,6 +27,32 @@ public:
 	}
 };
 
+class Magazine : public LibMat {
+public:
+    Magazine( const string &title, const string &editor)
+        : _title( title ), _editor( editor ) {
+        cout << "Magazine::Magazine( " << _title
+            << ", " << _editor << " ) constructor\n";
+    }
+
+    ~Magazine() {
+        cout << "Magazine::~Magazine() destructor!\n";
+    }
+
+    virtual void print() const {
+        cout << "Mag::print() -- I am a Mag Obj\n"
+            << "My title is: " << _title << '\n'
+            << "My editor is: " << _editor << endl;
+    }
+
+    const string& editor() const { return _editor; }
+
+protected:
+    string _title;
+    string _editor;
+
+};
+
 class Book : public LibMat {
 public:
 	Book( const string &title, const string &author )
@@ -101,6 +127,12 @@ int main()
         cout << "\n" << "Creating a Book object to print()\n";
 	    Book b( "The Castle", "Franz Kafka" );
 	    print( b );
+	}
+
+	{
+        cout << "\n" << "Creating a Mag object to print()\n";
+	    Magazine m( "Play Boy", "Neil" );
+	    print( m );
 	}
 	
 	{
